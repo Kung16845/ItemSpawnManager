@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/DodgeIt/Scenes/DodgeIt.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/DoodleJump/Scenes/DoodleJump.unity
+    guid: d2f171762c26fb14c96330c2b9026076
+  - enabled: 1
+    path: Assets/FlappyBird/Scenes/FlappyBird.unity
+    guid: 758c49027aeb3b14d8f49a61806be7e5
+  - enabled: 1
+    path: Assets/SubwaySurfer2D/Scenes/Subway.unity
+    guid: 9ac7091daafbc944188a68dbe0c3160c
+  m_configObjects: {}
