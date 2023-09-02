@@ -108,5 +108,24 @@ namespace SuperGame
                 LevelManager.Instance.RestartCurrentLevel();
             }
         }
+
+        public int GetLifeCount()
+        {
+            return lifeCount;
+        }
+        public int GetMaxLifeCount()
+        {
+            return maxLifeCount;
+        }
+        public void AddLifeCount()
+        {
+            lifeCount++;
+            hud.SetLifeCount(lifeCount);
+        }
+        public void LoseLifeCount()
+        {
+            lifeCount-=2;
+            hud.SetLifeCount(lifeCount);
+        }
     }
 }
