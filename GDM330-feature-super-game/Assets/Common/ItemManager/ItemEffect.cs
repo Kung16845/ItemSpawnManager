@@ -11,13 +11,19 @@ namespace SuperGame
         protected override void InitAfterAwake()
         { }
 
+        [SerializeField] GameObject Armor;
+
         public void CollectItem_Heart()
         {
-            Debug.Log("Dearn Tid Leaw");
             if (GameManager.Instance.GetLifeCount() < GameManager.Instance.GetMaxLifeCount()) {
                 GameManager.Instance.AddLifeCount();
                 Debug.Log("heal Leaw");
             }
+        }
+        public void CollectItem_Armor()
+        {
+            Vector3 spawnPosition = new Vector3(99999999, transform.position.y, transform.position.z);
+            Instantiate(Armor, spawnPosition, Quaternion.identity);
         }
 
         public void CollectItem_Death() {

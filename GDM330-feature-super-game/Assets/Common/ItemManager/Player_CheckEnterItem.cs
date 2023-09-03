@@ -15,7 +15,7 @@ namespace SuperGame
             }
             else if (collision.gameObject.tag == "Armor")
             {
-                ItemEffect.Instance.CollectItem_Death();
+                ItemEffect.Instance.CollectItem_Armor();
             }
             else if (collision.gameObject.tag == "Poison")
             {

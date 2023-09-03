@@ -2108,6 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbd7c0fa906aec4a977af212c3a38cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Armor: {fileID: 6190859131845715245, guid: 895710bebf518f74dba65ba7b7de8b40, type: 3}
 --- !u!1 &954117966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndTimer:
-    duration: 10
+    duration: 60
   maxLifeCount: 3
   lifeCount: 3
   timeScaleToAdd: 0.25
