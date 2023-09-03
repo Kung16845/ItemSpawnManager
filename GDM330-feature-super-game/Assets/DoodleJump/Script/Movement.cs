@@ -21,7 +21,9 @@ namespace SuperGame.DoodleJump
         }
         void FixedUpdate()
         {
-            rb.velocity = new Vector2(horizontal*speed*Time.deltaTime,rb.velocity.y);
+            if (ItemEffect.Instance.isPoisoning) { rb.velocity = new Vector2(horizontal * speed * Time.deltaTime*(-1), rb.velocity.y); }
+            else {rb.velocity = new Vector2(horizontal*speed*Time.deltaTime,rb.velocity.y); }
+            
         }
     }
 }

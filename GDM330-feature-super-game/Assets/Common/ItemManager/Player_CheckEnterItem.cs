@@ -19,7 +19,7 @@ namespace SuperGame
             }
             else if (collision.gameObject.tag == "Poison")
             {
-
+                ItemEffect.Instance.CollectItem_Poison();
             }
             Destroy(collision.gameObject);
         }

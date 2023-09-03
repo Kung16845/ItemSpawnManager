@@ -35,6 +35,25 @@ namespace SuperGame.SubwaySurfer2D
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                if (ItemEffect.Instance.isPoisoning) { MoveWithRightArrow(); }
+                else { MoveWithLeftArrow(); }
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (ItemEffect.Instance.isPoisoning) { MoveWithLeftArrow(); }
+                else { MoveWithRightArrow(); }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                AudioManager.Instance.Play("jump");
+                StartCoroutine("Jump");
+            }
+            
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+            void MoveWithLeftArrow()
+            {
                 if (currentLine == 0)
                 {
                     targetPosition = targetleft.position;
@@ -47,7 +66,8 @@ namespace SuperGame.SubwaySurfer2D
                     right = true;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+
+            void MoveWithRightArrow()
             {
                 if (currentLine == 0)
                 {
@@ -61,14 +81,6 @@ namespace SuperGame.SubwaySurfer2D
                     left = true;
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                AudioManager.Instance.Play("jump");
-                StartCoroutine("Jump");
-            }
-            
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
     }
 }
