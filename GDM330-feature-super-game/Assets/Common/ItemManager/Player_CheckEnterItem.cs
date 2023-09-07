@@ -21,7 +21,8 @@ namespace SuperGame
             {
                 ItemEffect.Instance.CollectItem_Poison();
             }
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 }

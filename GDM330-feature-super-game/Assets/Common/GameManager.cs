@@ -35,9 +35,16 @@ namespace SuperGame
         {
             lifeCount = maxLifeCount;
             hud.SetLifeCount(lifeCount);
-            hud.SetLevel(LevelManager.Instance.CurrentLevel);
+            hud.SetLevel(LevelManager.Instance.CurrentLevel);         
         }
-        
+        void ResetObjectPooling()
+        {
+            ObjectPooling.Instance.Armor = 0;
+            ObjectPooling.Instance.Poison = 0;
+            ObjectPooling.Instance.Heart = 0;
+            ObjectPooling.Instance.StopSpawnItem = false;
+            ObjectPooling.Instance.UseSpawnItemsCoroutine();
+        }
         void SetupHUD()
         {
             levelEndTimer.OnDone += EndLevel;
@@ -73,6 +80,7 @@ namespace SuperGame
         void EndLevel()
         {
             AudioManager.Instance.Play("victory");
+            ResetObjectPooling();
             Pause();
             hud.SetEndGameUIVisible(true, false);
         }
@@ -90,6 +98,7 @@ namespace SuperGame
 
             AudioManager.Instance.Play("lose");
             isGameOver = true;
+            ResetObjectPooling();
             Pause();
             lifeCount--;
             hud.SetLifeCount(lifeCount);
@@ -101,6 +110,7 @@ namespace SuperGame
             if (lifeCount == 0)
             {
                 Reset();
+                ResetObjectPooling();
                 LevelManager.Instance.LoadFirstLevel();
             }
             else
