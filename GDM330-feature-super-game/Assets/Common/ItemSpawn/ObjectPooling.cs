@@ -95,6 +95,7 @@ namespace SuperGame
 
             while (!StopSpawnItem && attempts < maxAttempts)
             {
+                attempts++;
                 Pool randomPool = pools[UnityEngine.Random.Range(0, pools.Count)];
                 string objectrandom = randomPool.tag;
 
