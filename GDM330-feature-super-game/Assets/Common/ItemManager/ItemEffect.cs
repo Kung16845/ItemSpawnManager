@@ -14,7 +14,7 @@ namespace SuperGame
 
         [SerializeField] GameObject Armor;
         [Header("POISON")]
-        [SerializeField] GameObject PoisonUI;
+        public GameObject PoisonUI;
         [SerializeField] TextMeshProUGUI PoisoningTimer;
         [SerializeField] public bool isPoisoning;
 

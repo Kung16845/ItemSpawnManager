@@ -3365,7 +3365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndTimer:
-    duration: 9
+    duration: 5
   maxLifeCount: 3
   lifeCount: 3
   timeScaleToAdd: 0.25
