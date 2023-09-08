@@ -15,7 +15,7 @@ namespace SuperGame
 
         private void Update()
         {
-            transform.position = player.position;
+            transform.position = new Vector3(player.position.x,player.position.y+1)   ;
         }
     }
 }
