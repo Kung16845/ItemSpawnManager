@@ -42,10 +42,12 @@ namespace SuperGame
         }
         void ResetObjectPooling()
         {
+            
             ObjectPooling.Instance.Armor = 0;
             ObjectPooling.Instance.Poison = 0;
             ObjectPooling.Instance.Heart = 0;
             ObjectPooling.Instance.StopSpawnItem = false;     
+            // ObjectPooling.Instance.UseSpawnItemsCoroutine();
         }
         void SetupHUD()
         {

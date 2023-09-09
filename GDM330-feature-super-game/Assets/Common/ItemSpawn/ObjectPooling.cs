@@ -11,7 +11,9 @@ namespace SuperGame
     {
         protected override void InitAfterAwake()
         {
-            
+            player = FindObjectOfType<Player_CheckEnterItem>().transform;
+            CreateObjectPooling();
+            UseSpawnItemsCoroutine();
         }
         [System.Serializable]
         public class Pool
@@ -32,13 +34,6 @@ namespace SuperGame
         public bool StopSpawnItem = false;
         public List<Pool> pools;
         public Dictionary<string, Queue<GameObject>> poolDictionary;
-
-        void Start()
-        {
-            player = FindObjectOfType<Player_CheckEnterItem>().transform;
-            CreateObjectPooling();
-            UseSpawnItemsCoroutine();
-        }
         
         private void Update() {
             
@@ -88,6 +83,12 @@ namespace SuperGame
         }
         public Vector3 randomtranfrom()
         {
+            if(player == null)
+            {
+                Debug.Log("Player is null");
+                return Vector3.zero; // or some other sensible default value
+            }
+
             Vector3 playerTranfrom = player.position;
             float randomX = UnityEngine.Random.Range(playerTranfrom.x - 2f, playerTranfrom.x + 2f);
             float randomY = UnityEngine.Random.Range(playerTranfrom.y + distanceTranformPlayerY, playerTranfrom.y + distanceTranformPlayerY + 1f);
