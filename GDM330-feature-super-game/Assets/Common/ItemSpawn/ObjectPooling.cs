@@ -41,6 +41,7 @@ namespace SuperGame
         }
         
         private void Update() {
+            
             player = FindObjectOfType<Player_CheckEnterItem>().transform;
         }
         public void CreateObjectPooling()
@@ -62,6 +63,12 @@ namespace SuperGame
         }
         public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
         {
+
+            if (String.IsNullOrEmpty(tag))
+            {
+                return null; 
+            }
+
             if (!poolDictionary.ContainsKey(tag))
             {
                 Debug.LogWarning("Pool with tag" + tag + "doesn't excist.");
@@ -126,7 +133,7 @@ namespace SuperGame
         {
             StartCoroutine(SpawnItemsCoroutine());
         }
-        private IEnumerator SpawnItemsCoroutine()
+        public IEnumerator SpawnItemsCoroutine()
         {
             while (!StopSpawnItem)
             {

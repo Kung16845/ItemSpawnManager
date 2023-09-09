@@ -1539,9 +1539,9 @@ MonoBehaviour:
   Poison: 0
   distanceTranformPlayerY: 10
   durationItemSpawn: 1
-  limitArmor: 3
-  limitPoison: 3
-  limitHeart: 3
+  limitArmor: 1
+  limitPoison: 1
+  limitHeart: 1
   StopSpawnItem: 0
   pools:
   - tag: Armor
