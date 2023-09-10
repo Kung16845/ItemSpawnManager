@@ -29,6 +29,7 @@ namespace SuperGame.DodgeIt
         
             var horizontalInput = Input.GetAxis("Horizontal");
             var moveDirection = horizontalInput * new Vector3(1, 0, 0);
+            if (ItemEffect.Instance.isPoisoning) { moveDirection *= -1f; }
             rigidbody.AddForce(moveDirection * moveSpeed);
         }
 

@@ -18,6 +18,7 @@ namespace SuperGame
         {
             difficultyLevel = value;
             difficultyUI.SetActive(false);
+            GameManager.Instance.SetItemPoolFromDifficulty();
             GameManager.Instance.StartLevel();
         }
     }
