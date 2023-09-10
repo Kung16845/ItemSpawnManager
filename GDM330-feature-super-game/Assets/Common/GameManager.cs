@@ -19,21 +19,21 @@ namespace SuperGame
 
         [Header("BGM")]
         [SerializeField] AudioSource bgm;
-        
+
         bool isPaused;
         bool isGameOver;
 
         protected override void InitAfterAwake()
         {
             Pause();
-            Reset();
             SetupHUD();
+            Reset();
             difficultyManager = DifficultyManager.Instance;
-            //StartLevel();
         }
         
         void Reset()
         {
+
             lifeCount = maxLifeCount;
             hud.SetLifeCount(lifeCount);
             hud.SetLevel(LevelManager.Instance.CurrentLevel);         
@@ -44,8 +44,10 @@ namespace SuperGame
         void ResetObjectPooling()
         {
             SetItemPoolFromDifficulty();
+            ObjectPooling.Instance.Cleanup();
             ObjectPooling.Instance.UseSpawnItemsCoroutine();
         }
+
         void SetupHUD()
         {
             levelEndTimer.OnDone += EndLevel;
@@ -66,7 +68,6 @@ namespace SuperGame
             isGameOver = false;
             levelEndTimer.Start();
             Resume();
-            SetItemPoolFromDifficulty();
             LevelManager.Instance.SetLastPlayedLevel();
             hud.SetGameEndCountdownTime(levelEndTimer.duration, levelEndTimer.duration);
         }
@@ -123,23 +124,21 @@ namespace SuperGame
         public void SetItemPoolFromDifficulty()
         {
             // Define a class or dictionary to map difficulty levels to item pool limits
-            Dictionary<int, ItemPoolLimits> difficultyToLimits = new Dictionary<int, ItemPoolLimits>
-            {
-                { 1, new ItemPoolLimits(2, 0, 1) },
-                { 2, new ItemPoolLimits(1, 1, 1) },
-                { 3, new ItemPoolLimits(0, 1, 0) },
-            };
+        Dictionary<int, ItemPoolLimits> difficultyToLimits = new Dictionary<int, ItemPoolLimits>
+        {
+        { 0, new ItemPoolLimits(0, 0, 0) }, 
+        { 1, new ItemPoolLimits(2, 0, 1) },
+        { 2, new ItemPoolLimits(1, 1, 1) },
+        { 3, new ItemPoolLimits(0, 1, 0) },
+        };
 
-            // Get the selected difficulty level from the DifficultyManager
-            int difficultyLevel = difficultyManager.DifficultyLevel;
+        int difficultyLevel = difficultyManager.DifficultyLevel;
 
-            // Check if the difficulty level exists in the dictionary
-            if (difficultyToLimits.TryGetValue(difficultyLevel, out ItemPoolLimits limits))
-            {
-        // Update the ObjectPooling instance with the item pool limits
-            ObjectPooling.Instance.limitArmor = limits.Armor;
-            ObjectPooling.Instance.limitPoison = limits.Poison;
-            ObjectPooling.Instance.limitHeart = limits.Heart;
+        if (difficultyToLimits.TryGetValue(difficultyLevel, out ItemPoolLimits limits))
+        {
+        ObjectPooling.Instance.limitArmor = limits.Armor;
+        ObjectPooling.Instance.limitPoison = limits.Poison;
+        ObjectPooling.Instance.limitHeart = limits.Heart;
         }
         else
         {   
@@ -147,12 +146,14 @@ namespace SuperGame
         Debug.LogError("Difficulty level not found: " + difficultyLevel);
         }
 
-            // Reset other item pool settings
+        // Reset other item pool settings
         ObjectPooling.Instance.Armor = 0;
         ObjectPooling.Instance.Poison = 0;
         ObjectPooling.Instance.Heart = 0;
         ObjectPooling.Instance.StopSpawnItem = false;
-        }
+        Debug.Log("Item set.");
+    }
+
         public int GetDifficultylevel()
         {
             int difficultyLevel = difficultyManager.DifficultyLevel;
@@ -191,4 +192,4 @@ namespace SuperGame
         Heart = heart;
     }
     }
-}
+    }
