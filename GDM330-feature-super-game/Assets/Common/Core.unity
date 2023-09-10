@@ -1538,7 +1538,7 @@ MonoBehaviour:
   Heart: 0
   Poison: 0
   distanceTranformPlayerY: 10
-  durationItemSpawn: 1
+  durationItemSpawn: 5
   limitArmor: 3
   limitPoison: 3
   limitHeart: 3
@@ -3365,10 +3365,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndTimer:
-    duration: 5
+    duration: 10
   maxLifeCount: 3
   lifeCount: 3
   timeScaleToAdd: 0.25
+  difficultyManager: {fileID: 1602366012}
   hud: {fileID: 213361561}
   bgm: {fileID: 2049417092}
 --- !u!4 &2049417091
