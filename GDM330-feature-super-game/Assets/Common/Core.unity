@@ -1538,28 +1538,22 @@ MonoBehaviour:
   Heart: 0
   Poison: 0
   distanceTranformPlayerY: 10
-<<<<<<< HEAD
-  durationItemSpawn: 5
-  limitArmor: 3
-  limitPoison: 3
-  limitHeart: 3
-=======
   durationItemSpawn: 1
+  durationfirstobjecttospawnerafterloaded: 0
   limitArmor: 1
   limitPoison: 1
   limitHeart: 1
->>>>>>> ItemSpawner
   StopSpawnItem: 0
   pools:
   - tag: Armor
     prefab: {fileID: 5626593070812721151, guid: e63947690ac18ee4084e2a2a1b398264, type: 3}
-    size: 10
+    size: 2
   - tag: Heart
     prefab: {fileID: 1988390461975576673, guid: 458f0c8c3d6564848bdc3426aa7cc233, type: 3}
-    size: 10
+    size: 2
   - tag: Poison
     prefab: {fileID: 4534103452272722215, guid: 027c0384ef22dfd4fab00c13870420a2, type: 3}
-    size: 10
+    size: 2
 --- !u!4 &656876539
 Transform:
   m_ObjectHideFlags: 0
@@ -3372,11 +3366,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndTimer:
-    duration: 10
+    duration: 5
   maxLifeCount: 3
   lifeCount: 3
   timeScaleToAdd: 0.25
-  difficultyManager: {fileID: 1602366012}
+  difficultyManager: {fileID: 0}
   hud: {fileID: 213361561}
   bgm: {fileID: 2049417092}
 --- !u!4 &2049417091
