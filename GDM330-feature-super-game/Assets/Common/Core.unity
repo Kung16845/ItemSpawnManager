@@ -1538,8 +1538,8 @@ MonoBehaviour:
   Heart: 0
   Poison: 0
   distanceTranformPlayerY: 10
-  durationItemSpawn: 1
-  durationfirstobjecttospawnerafterloaded: 0
+  durationItemSpawn: 2
+  durationfirstobjecttospawnerafterloaded: 1
   limitArmor: 1
   limitPoison: 1
   limitHeart: 1
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   maxLifeCount: 3
   lifeCount: 3
   timeScaleToAdd: 0.25
-  difficultyManager: {fileID: 0}
+  difficultyManager: {fileID: 1602366012}
   hud: {fileID: 213361561}
   bgm: {fileID: 2049417092}
 --- !u!4 &2049417091
